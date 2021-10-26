@@ -42,7 +42,6 @@ function App() {
   const [usernameReg, setUserNameReg] = useState("") 
   const [userLastNameReg, setUserLastNameReg] = useState("")
   const [userPhoneReg, setUserPhoneReg] = useState("")
-  const [userRoleReg, setUserRoleReg] = useState("")
   const [EmailReg, setEmailReg] = useState("")
   const [passwordReg, setPasswordReg] = useState("")
   
@@ -52,7 +51,6 @@ function App() {
       firstName: usernameReg,
       lastName: userLastNameReg,
       phone: userPhoneReg,
-      role: userRoleReg,
       mail: EmailReg,
       password: passwordReg
     }).then((response)=>{
@@ -151,16 +149,6 @@ function App() {
                   <div className="input-block">
                     <label for="signup-password-confirm">Confirmar contraseña</label>
                     <input id="signup-password-confirm" type="password" required/>
-                  </div>
-                  <div className="input-block">
-                    <label for="signup-role">Rol</label>
-                    <select name="role"  
-                    onChange={(e)=> {
-                      setUserRoleReg(e.target.value)
-                      }}>
-                      <option value="employee">Empleado</option>
-                      <option value="client">Cliente</option>
-                    </select>
                   </div>
                 </fieldset>
                 <button type="submit" className="btn-signup" onClick={register}>Solicitar</button>
