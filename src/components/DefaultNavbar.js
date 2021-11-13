@@ -59,16 +59,19 @@ export default function DefaultNavbar() {
                   ripple="light"
                 >
                   <Link to="/">
-                    <DropdownItem color="lightBlue">Inicio</DropdownItem>
+                    <DropdownItem color="pink">Inicio</DropdownItem>
                   </Link>
                   <Link to="/Calculadora">
-                    <DropdownItem color="lightBlue">Calcula envio</DropdownItem>
+                    <DropdownItem color="pink">Calcula envio</DropdownItem>
                   </Link>
                   <Link to="/login">
-                    <DropdownItem color="lightBlue">Login</DropdownItem>
+                    <DropdownItem color="pink">Login</DropdownItem>
                   </Link>
                   <Link to="/register">
-                    <DropdownItem color="lightBlue">Register</DropdownItem>
+                    <DropdownItem color="pink">Register</DropdownItem>
+                  </Link>
+                  <Link to="/dashboard">
+                    <DropdownItem color="pink">Mensajeros</DropdownItem>
                   </Link>
                 </Dropdown>
               </div>

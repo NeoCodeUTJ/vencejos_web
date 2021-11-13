@@ -3,6 +3,7 @@ import Landing from "pages/Landing";
 import Coverage from "pages/Coverage";
 import Login from "pages/Login";
 import Register from "pages/Register";
+import Dashboard from "pages/Dashboard";
 
 // Font Awesome Style Sheet
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/Cobertura" component={Coverage} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
+      <Route exact path="/dashboard" component={Dashboard} />
       <Redirect from="*" to="/" />
     </Switch>
   );
