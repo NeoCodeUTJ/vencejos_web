@@ -60,7 +60,7 @@ const Login = (props) => {
         if (checkBtn.current.context._errors.length === 0) {
             AuthService.login(email, password).then(() => {
 
-                props.history.push("/");
+                props.history.push("/Admon");
                 window.location.reload();
                 alert('Signed in successfully as ' + email)
             }, (error) => {
@@ -107,14 +107,14 @@ const Login = (props) => {
                                         [required]
                                     }/>
                             </div>
-                            <div className="mb-4 px-4">
+                            {/* <div className="mb-4 px-4">
                                 <Checkbox color="pink" text="Remember Me" id="remember"/>
-                            </div>
+                            </div> */}
                         </CardBody>
                         <CardFooter>
                             <div className="flex justify-center bg-bb">
                                 <Button color="pink" buttonType="link" size="lg" ripple="dark">
-                                    Get Started
+                                    Iniciar Sesión
                                 </Button>
                             </div>
                             <div className="form-group">

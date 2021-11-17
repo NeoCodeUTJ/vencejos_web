@@ -9,6 +9,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // Tailwind CSS Style Sheet
 import "assets/styles/tailwind.css";
+import Admon from "pages/Admon";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/Cobertura" component={Coverage} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
+      <Route exact path="/Admon" component={Admon}/>
       <Redirect from="*" to="/" />
     </Switch>
   );

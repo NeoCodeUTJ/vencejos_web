@@ -14,8 +14,9 @@ import Icon from "@material-tailwind/react/Icon";
 import Button from "@material-tailwind/react/Button";
 
 export default function DefaultNavbar() {
-  const [openNavbar, setOpenNavbar] = useState(false);
 
+ 
+  const [openNavbar, setOpenNavbar] = useState(false);
   return (
     <Navbar color="transparent" navbar>
       <NavbarContainer>
@@ -70,6 +71,9 @@ export default function DefaultNavbar() {
                   <Link to="/register">
                     <DropdownItem color="lightBlue">Register</DropdownItem>
                   </Link>
+                  <Link to="/Admon">
+                    <DropdownItem color="lightBlue">Admon</DropdownItem>
+                  </Link>
                 </Dropdown>
               </div>
 
@@ -78,9 +82,27 @@ export default function DefaultNavbar() {
                   color="pink"
                   className="bg-white text-black ml-4"
                   ripple="dark"
+                  display="none"
+                
+                  
                 >
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </Button>
+                
+              </a>
+              <a href="/" rel="noreferrer">
+                {/* <Button
+                  color="pink"
+                  className="bg-white text-black ml-4"
+                  ripple="dark"
+                  display="none"
+                  onClick={logout}
+                
+                  
+                >
+                  Cerrar Sesión
+                </Button> */}
+                
               </a>
             </div>
           </Nav>
