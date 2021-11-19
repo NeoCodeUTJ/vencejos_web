@@ -8,9 +8,15 @@ const login = (email, password)=>{
         password,
     })
     .then((res)=>{
-        console.log(res)
+        const name = res.data.data.name;
+        const fsurname = res.data.data.first_surname;
+        const sndsurname = res.data.data.second_surname;
+        const fullname = `${name} ${fsurname} ${sndsurname}`;
+        console.log(fsurname, sndsurname);
         if(res.data.token){
-            localStorage.setItem('user',JSON.stringify(res.data.token));
+            localStorage.setItem('token',JSON.stringify(res.data.token));
+            localStorage.setItem('name',JSON.stringify(fullname));
+            
         }
         return res.data;
     });
@@ -20,10 +26,10 @@ const login = (email, password)=>{
 
 
 const logout =() =>{
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
 }
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    return JSON.parse(localStorage.getItem("token"));
   };
   
   export default {
