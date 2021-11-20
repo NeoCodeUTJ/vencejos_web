@@ -1,7 +1,7 @@
 import axios from 'axios';
 const api_url = 'http://localhost:8080/api/auth/login';
 
-const login = (email, password)=>{
+export const login = (email, password)=>{
     return axios
     .post(api_url,{
         email,
@@ -25,10 +25,10 @@ const login = (email, password)=>{
 };
 
 
-const logout =() =>{
+export const logout =() =>{
     localStorage.removeItem('token');
 }
-const getCurrentUser = () => {
+export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("token"));
   };
   
