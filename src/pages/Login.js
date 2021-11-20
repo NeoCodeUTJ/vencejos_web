@@ -86,7 +86,7 @@ const Login = (props) => {
                                 style={
                                     {marginBottom: 0}
                             }>
-                                Login
+                                Inicia Sesión
                             </H5>
                         </CardHeader>
 
@@ -114,7 +114,7 @@ const Login = (props) => {
                         <CardFooter>
                             <div className="flex justify-center bg-bb">
                                 <Button color="pink" buttonType="link" size="lg" ripple="dark">
-                                    Iniciar Sesión
+                                    Inicia Sesión
                                 </Button>
                             </div>
                             <div className="form-group">

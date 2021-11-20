@@ -3,6 +3,7 @@ import DefaultFooter from "components/DefaultFooter";
 import Header from "components/coverage/Header";
 import Content from "components/coverage/Content";
 
+
 export default function Coverage() {
   return (
     <>

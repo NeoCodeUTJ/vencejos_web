@@ -45,19 +45,19 @@ export default function CardTable() {
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
-                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-left">
+                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                                     Users
                                 </th>
-                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-left">
+                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                                     Nombre
                                 </th>
-                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-left">
+                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                                     Correo
                                 </th>
-                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-left">
+                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                                     Telefono
                                 </th>
-                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-left">
+                                <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                                     Acciones
                                 </th>
                             </tr>
@@ -65,8 +65,8 @@ export default function CardTable() {
                         <tbody> 
                             <tr>
                                 {/*Users*/}
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                <div className="w-20 h-20 rounded-full flex items-center justify-center border-2 border-white">
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
+                                <div className=" w-20 h-20 rounded-full flex items-center justify-center border-2 border-white ">
                                 
                                             <Image
                                                 src={Team4}
@@ -75,21 +75,21 @@ export default function CardTable() {
                                         </div>
                                 </th>
                                 {/*Nombre*/}
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                 Carlos Silva
                                 </th>
                                 {/*Correo*/}
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                    carlosS@gmail.com
                                 </th>
                                 {/*Telefono*/}
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                     3331828911   
                                 </th>
                                 {/*Acciones*/}
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                 {/*Editar*/}
-                                <div className= "flex flex-row" >
+                                <div className= "flex flex-row " >
                                 <Button
                                         color="pink"
                                         className="bg-white text-white ml-4"

@@ -32,20 +32,22 @@ export default function DefaultNavbar() {
 
         <NavbarCollapse open={openNavbar}>
           <Nav>
+             {/**/}
             <div className="flex flex-col z-50 lg:flex-row lg:items-center">
               <NavLink href="/Cobertura" rel="noreferrer" ripple="light">
                 <Icon name="language" size="2xl" />
                 &nbsp;Cobertura
               </NavLink>
+              {/*termina*/}
               <NavLink
-                href="https://material-tailwind.com/components?ref=mtk"
-                target="_blank"
+                href="/"
                 rel="noreferrer"
                 ripple="light"
               >
-                <Icon name="apps" size="2xl" />
-                &nbsp;Otros
+                <Icon name="home" size="2xl" />
+                &nbsp;Inicio
               </NavLink>
+
               <div className="text-white">
                 <Dropdown
                   color="transparent"
@@ -59,20 +61,18 @@ export default function DefaultNavbar() {
                   }
                   ripple="light"
                 >
-                  <Link to="/">
-                    <DropdownItem color="pink">Inicio</DropdownItem>
-                  </Link>
-                  <Link to="/Calculadora">
-                    <DropdownItem color="pink">Calcula envio</DropdownItem>
-                  </Link>
+                
                   <Link to="/login">
-                    <DropdownItem color="pink">Login</DropdownItem>
+                    <DropdownItem color="pink">Iniciar sesion</DropdownItem>
                   </Link>
                   <Link to="/register">
-                    <DropdownItem color="pink">Register</DropdownItem>
+                    <DropdownItem color="pink">Registrar</DropdownItem>
                   </Link>
                   <Link to="/dashboard">
                     <DropdownItem color="pink">Mensajeros</DropdownItem>
+                  </Link>
+                  <Link to="/shippments">
+                    <DropdownItem color="pink">Envios</DropdownItem>
                   </Link>
                   <Link to="/Admon">
                     <DropdownItem color="lightBlue">Admon</DropdownItem>
@@ -83,7 +83,7 @@ export default function DefaultNavbar() {
               <a href="/login" rel="noreferrer">
                 <Button
                   color="pink"
-                  className="bg-white text-black ml-4"
+                  className="bg-white text-white ml-4"
                   ripple="dark"
                   display="none"
                 

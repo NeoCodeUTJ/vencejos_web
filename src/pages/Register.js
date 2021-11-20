@@ -18,7 +18,7 @@ export default function Register() {
         <Card>
           <CardHeader color="pink">
             <H5 color="white" style={{ marginBottom: 0 }}>
-              Register
+              Registrar
             </H5>
           </CardHeader>
 
@@ -51,7 +51,7 @@ export default function Register() {
           <CardFooter>
             <div className="flex justify-center">
               <Button color="pink" buttonType="link" size="lg" ripple="dark">
-                Register
+                Registrar
               </Button>
             </div>
           </CardFooter>
