@@ -24,7 +24,9 @@ const AddShippmentsForm = (props) => {
     comments: comentarios,
     total_amount: costo,
     status: "In Progress",
-    received: false,
+    received: 0,
+    id_user_client: user,
+    id_user_employee: user,
   };
 
   const onChangeRecolect = (e) => {
