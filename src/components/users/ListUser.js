@@ -1,20 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import InputIcon from "@material-tailwind/react/InputIcon";
-import usersService from 'services/users.service';
+import { getUsers } from 'services/users.service';
 
 const ListUsers = () => {
-    
-    // useEffect(() => {
-    //     usersService.getUsers()
-    //     .then()
-    //     return () => {
-    //         cleanup
-    //     }
-    // })
+
+    const [response, setResponse] = useState(null);
+
+    useEffect(() => {
+        getUsers()
+            .then(({data}) => {
+                setResponse(data);
+                console.log("Respuesta: ", response);
+            })
+            .catch(error => {
+                console.log(error);
+                return error;
+            });
+    }, [])
 
     return (
         <div className="relative py-16 bg-gray-100">
