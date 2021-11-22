@@ -12,6 +12,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
 import Admon from "pages/Admon";
 import Shippments from "pages/Shippments";
+import AddShippments from "pages/AddShippments";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/envios" component={Shippments} />
       <Route exact path="/Admon" component={Admon} />
+      <Route exact path="/AgregaEnvio" component={AddShippments} />
       <Redirect from="*" to="/" />
     </Switch>
   );
