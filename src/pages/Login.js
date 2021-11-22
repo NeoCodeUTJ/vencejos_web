@@ -21,7 +21,7 @@ import Container from "components/login/Container";
 const required = (value) => {
     if (!value) {
         return (
-            <div className="alert alert-danger" role="alert">
+            <div className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1" role="alert">
                 This field is required!
             </div>
         );
@@ -62,7 +62,14 @@ const Login = (props) => {
                 window.location.reload();
             }, (error) => {
                 setLoading(false);
-                setMessage('Email o contraseña incorrectos');
+                setMessage( <div class="h-48 flex flex-wrap content-center flex flex-col w-full max-w-sm mx-auto p-4 border border-gray-200 bg-white shadow">
+
+                <div class="relative">
+                     <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                         Correo y/o Contraseña no validos.
+                     </span>
+                 </div>
+                </div>);
             });
         } else {
             setLoading(false);
@@ -87,7 +94,7 @@ const Login = (props) => {
 
                         <CardBody>
                             <div className="mb-12 px-4 bg-bb">
-                                <InputIcon type="email" color="pink" placeholder="Email Address" iconName="email" name="email"
+                                <InputIcon required type="email" color="pink" placeholder="Correo" iconName="email" name="email"
                                     value={email}
                                     onChange={onChangeemail}
                                     validations={
@@ -95,7 +102,7 @@ const Login = (props) => {
                                     }/>
                             </div>
                             <div className="mb-8 px-4">
-                                <InputIcon type="password" color="pink" placeholder="Password" iconName="lock" name="password"
+                                <InputIcon required type="password" color="pink" placeholder="Contraseña" iconName="lock" name="password"
                                     value={password}
                                     onChange={onChangePassword}
                                     validations={
@@ -128,9 +135,15 @@ const Login = (props) => {
                             )
                         }
                             <CheckButton style={
-                                    {display: "none"}
+                                    {
+                                        display: "none",
+                                        aligItems: "center",
+                                        display: "flex",
+                                        justifyContent: "center"
+                                    }
                                 }
                                 ref={checkBtn}/>
+                          
                         </CardFooter>
                     </Card>
 
