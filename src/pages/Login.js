@@ -59,15 +59,10 @@ const Login = (props) => {
         console.log(email, password);
         if (checkBtn.current.context._errors.length === 0) {
             AuthService.login(email, password).then(() => {
-
-                props.history.push("/Admon");
                 window.location.reload();
-                alert('Signed in successfully as ' + email)
             }, (error) => {
-                const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
-
                 setLoading(false);
-                setMessage(resMessage);
+                setMessage('Email o contraseña incorrectos');
             });
         } else {
             setLoading(false);
@@ -107,9 +102,6 @@ const Login = (props) => {
                                         [required]
                                     }/>
                             </div>
-                            {/* <div className="mb-4 px-4">
-                                <Checkbox color="pink" text="Remember Me" id="remember"/>
-                            </div> */}
                         </CardBody>
                         <CardFooter>
                             <div className="flex justify-center bg-bb">
