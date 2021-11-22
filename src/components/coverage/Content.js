@@ -6,6 +6,7 @@ import ProfilePicture from "assets/img/Logo.jpeg";
 
 export default function Content() {
   return (
+
     <section className="relative py-16 bg-gray-100">
       <div className="container max-w-7xl px-4 mx-auto">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-2xl -mt-64">
@@ -45,11 +46,13 @@ export default function Content() {
                       </Label>
                       <br />
                     </div>
+
                     <iframe
                       src="https://www.google.com/maps/d/embed?mid=1gf3NKbUaIZci3qWYSpOIAaWDIBdQc9aM"
                       width="640"
                       height="480"
                     ></iframe>
+        
                   </div>
                 </div>
               </div>

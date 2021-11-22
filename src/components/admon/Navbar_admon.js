@@ -2,12 +2,23 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import logovencejos from '../../assets/img/Logo.jpeg'
+import { Redirect } from 'react-router'
+// import {logout} from 'services/auth.services'
 
+const logout =() =>{
+  localStorage.removeItem('token');
+  localStorage.removeItem('name');
+  window.location.href='/';
+}
+
+const fullname = localStorage.getItem('name')?.replace('"','');
+console.log(fullname);
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Clientes', href: '#', current: true},
+  { name: 'Empleados', href: '#', current: false },
+  { name: 'Envios', href: '#', current: false },
+  { name: 'Proveedores', href: '#', current: false }
 ]
 
 function classNames(...classes) {
@@ -36,13 +47,13 @@ export default function Example() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
+                    src={logovencejos}
+                    alt="Vencejos-mensajeria-logo"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
+                    src={logovencejos}
+                    alt="vencejos-mensajeria-logo"
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">
@@ -60,9 +71,15 @@ export default function Example() {
                         {item.name}
                       </a>
                     ))}
+                    <button href="/" class='text-white text-gray-300 hover:bg-gray-700 hover:text-white
+                          px-3 py-2 rounded-md text-sm font-medium' onClick={logout}
+                        >Cerrar Sesión</button>
                   </div>
+
                 </div>
+                
               </div>
+              <p class="text-white md:flex">"Bienvenid(a): {fullname}</p>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -100,7 +117,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Your Profile
+                            Envios
                           </a>
                         )}
                       </Menu.Item>
@@ -110,7 +127,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Settings
+                            Usuarios
                           </a>
                         )}
                       </Menu.Item>
@@ -120,7 +137,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                            ...
                           </a>
                         )}
                       </Menu.Item>
