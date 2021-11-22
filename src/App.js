@@ -3,7 +3,7 @@ import Landing from "pages/Landing";
 import Coverage from "pages/Coverage";
 import Login from "pages/Login";
 import Register from "pages/Register";
-import Dashboard from "pages/Dashboard";
+import Users from "pages/Users";
 
 // Font Awesome Style Sheet
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -29,6 +29,9 @@ function App() {
       }} />
       <Route exact path="/Admon" render={() => {
         return !token ? <Redirect to="/" /> : <Admon />
+      }} />
+        <Route exact path="/usuarios" render={() => {
+        return !token ? <Redirect to="/" /> : <Users />
       }} />
       <Redirect from="*" to="/" />
     </Switch>
