@@ -698,14 +698,14 @@ video {
 .h-8{
 	height: 2rem;
 }
+.h-screen{
+	height: 100vh;
+}
 .h-20{
 	height: 5rem;
 }
 .h-12{
 	height: 3rem;
-}
-.h-screen{
-	height: 100vh;
 }
 .w-full{
 	width: 100%;
@@ -725,6 +725,9 @@ video {
 .w-8{
 	width: 2rem;
 }
+.w-screen{
+	width: 100vw;
+}
 .w-40{
 	width: 10rem;
 }
@@ -739,9 +742,6 @@ video {
 }
 .w-96{
 	width: 24rem;
-}
-.w-screen{
-	width: 100vw;
 }
 .min-w-0{
 	min-width: 0px;
@@ -923,6 +923,9 @@ video {
 }
 .bg-shippments-background{
 	background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/mountains-1600x1200.jpg');
+}
+.bg-lobby-background{
+	background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1080.jpg');
 }
 .bg-profile-background{
 	background-image: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url('/src/assets/img/background-1920x1080.jpg');
@@ -2791,6 +2794,9 @@ video {
 @media (min-width: 768px){
 	.md\:mb-0{
 		margin-bottom: 0px;
+	}
+	.md\:flex{
+		display: flex;
 	}
 	.md\:w-4\/12{
 		width: 33.333333%;
