@@ -1,11 +1,21 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import InputIcon from "@material-tailwind/react/InputIcon";
+import usersService from 'services/users.service';
 
 const ListUsers = () => {
+    
+    // useEffect(() => {
+    //     usersService.getUsers()
+    //     .then()
+    //     return () => {
+    //         cleanup
+    //     }
+    // })
+
     return (
         <div className="relative py-16 bg-gray-100">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-2xl -mt-64">
