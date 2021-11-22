@@ -14,8 +14,6 @@ import Icon from "@material-tailwind/react/Icon";
 import Button from "@material-tailwind/react/Button";
 
 export default function DefaultNavbar() {
-
- 
   const [openNavbar, setOpenNavbar] = useState(false);
   return (
     <Navbar color="transparent" navbar>
@@ -37,15 +35,7 @@ export default function DefaultNavbar() {
                 <Icon name="language" size="2xl" />
                 &nbsp;Cobertura
               </NavLink>
-              <NavLink
-                href="https://material-tailwind.com/components?ref=mtk"
-                target="_blank"
-                rel="noreferrer"
-                ripple="light"
-              >
-                <Icon name="apps" size="2xl" />
-                &nbsp;Otros
-              </NavLink>
+
               <div className="text-white">
                 <Dropdown
                   color="transparent"
@@ -61,9 +51,6 @@ export default function DefaultNavbar() {
                 >
                   <Link to="/">
                     <DropdownItem color="pink">Inicio</DropdownItem>
-                  </Link>
-                  <Link to="/Calculadora">
-                    <DropdownItem color="pink">Calcula envio</DropdownItem>
                   </Link>
                   <Link to="/login">
                     <DropdownItem color="pink">Login</DropdownItem>
@@ -86,12 +73,9 @@ export default function DefaultNavbar() {
                   className="bg-white text-black ml-4"
                   ripple="dark"
                   display="none"
-                
-                  
                 >
                   Iniciar Sesión
                 </Button>
-                
               </a>
               <a href="/" rel="noreferrer">
                 {/* <Button
@@ -105,7 +89,6 @@ export default function DefaultNavbar() {
                 >
                   Cerrar Sesión
                 </Button> */}
-                
               </a>
             </div>
           </Nav>
