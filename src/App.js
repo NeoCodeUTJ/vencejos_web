@@ -21,8 +21,8 @@ function App() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/shippments" component={Shippments}/>
-      <Route exact path="/Admon" component={Admon}/>
+      <Route exact path="/envios" component={Shippments} />
+      <Route exact path="/Admon" component={Admon} />
       <Redirect from="*" to="/" />
     </Switch>
   );

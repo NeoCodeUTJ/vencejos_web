@@ -2792,6 +2792,9 @@ video {
 	.md\:mb-0{
 		margin-bottom: 0px;
 	}
+	.md\:flex{
+		display: flex;
+	}
 	.md\:w-4\/12{
 		width: 33.333333%;
 	}

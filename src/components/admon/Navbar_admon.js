@@ -1,28 +1,28 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import logovencejos from '../../assets/img/Logo.jpeg'
-import { Redirect } from 'react-router'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import logovencejos from "../../assets/img/Logo.jpeg";
+import { Redirect } from "react-router";
 // import {logout} from 'services/auth.services'
 
-const logout =() =>{
-  localStorage.removeItem('token');
-  localStorage.removeItem('name');
-  window.location.href='/';
-}
+const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  window.location.href = "/";
+};
 
-const fullname = localStorage.getItem('name')?.replace('"','');
+const fullname = localStorage.getItem("name")?.replace('"', "");
 console.log(fullname);
 const navigation = [
-  { name: 'Clientes', href: '#', current: true},
-  { name: 'Empleados', href: '#', current: false },
-  { name: 'Envios', href: '#', current: false },
-  { name: 'Proveedores', href: '#', current: false }
-]
+  { name: "Clientes", href: "#", current: true },
+  { name: "Empleados", href: "#", current: false },
+  { name: "Envios", href: "/envios", current: false },
+  { name: "Proveedores", href: "#", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
@@ -63,21 +63,26 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
                     ))}
-                    <button href="/" class='text-white text-gray-300 hover:bg-gray-700 hover:text-white
-                          px-3 py-2 rounded-md text-sm font-medium' onClick={logout}
-                        >Cerrar Sesión</button>
+                    <button
+                      href="/"
+                      class="text-white text-gray-300 hover:bg-gray-700 hover:text-white
+                          px-3 py-2 rounded-md text-sm font-medium"
+                      onClick={logout}
+                    >
+                      Cerrar Sesión
+                    </button>
                   </div>
-
                 </div>
-                
               </div>
               <p class="text-white md:flex">"Bienvenid(a): {fullname}</p>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -114,8 +119,11 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="/envios"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Envios
                           </a>
@@ -124,8 +132,11 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="/envios"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Usuarios
                           </a>
@@ -135,7 +146,10 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             ...
                           </a>
@@ -156,10 +170,12 @@ export default function Example() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -169,5 +185,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
