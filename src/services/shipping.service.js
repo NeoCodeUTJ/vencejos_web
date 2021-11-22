@@ -1,12 +1,14 @@
 import axios from "axios";
-require("dotenv").config();
-const api_url = `${process.env.URL_API}shippings`;
+const api_url = `http://localhost:8080/api/shippings`;
+console.log(api_url);
 const token = localStorage.getItem("token");
 const config = {
   headers: { Authorization: `Bearer ${token}` },
 };
 
 export const addShip = (data) => {
+  console.log(data);
+
   return axios
     .post(api_url, config, {
       data,
