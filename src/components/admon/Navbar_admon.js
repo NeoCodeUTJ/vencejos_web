@@ -9,16 +9,12 @@ import { Redirect } from "react-router";
 const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("name");
-  window.location.href = "/";
 };
 
-const fullname = localStorage.getItem("name")?.replace('"', "");
-console.log(fullname);
+const fullname = localStorage.getItem("name")?.replaceAll('"', "");
 const navigation = [
-  { name: "Clientes", href: "#", current: true },
-  { name: "Empleados", href: "#", current: false },
+  { name: "Usuarios", href: "#", current: false },
   { name: "Envios", href: "/envios", current: false },
-  { name: "Proveedores", href: "#", current: false },
 ];
 
 function classNames(...classes) {
@@ -73,27 +69,11 @@ export default function Example() {
                         {item.name}
                       </a>
                     ))}
-                    <button
-                      href="/"
-                      class="text-white text-gray-300 hover:bg-gray-700 hover:text-white
-                          px-3 py-2 rounded-md text-sm font-medium"
-                      onClick={logout}
-                    >
-                      Cerrar Sesión
-                    </button>
                   </div>
                 </div>
               </div>
-              <p class="text-white md:flex">"Bienvenid(a): {fullname}</p>
+              <p class="text-white md:flex">Bienvenid(a): {fullname}</p>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
@@ -124,34 +104,9 @@ export default function Example() {
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
+                            onClick={logout}
                           >
-                            Envios
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="/envios"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Usuarios
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            ...
+                            Cerrar sesión
                           </a>
                         )}
                       </Menu.Item>

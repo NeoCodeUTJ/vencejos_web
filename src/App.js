@@ -15,16 +15,50 @@ import Shippments from "pages/Shippments";
 import AddShippments from "pages/AddShippments";
 
 function App() {
+  const token = localStorage.getItem("token");
+  console.log(token);
   return (
     <Switch>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/Cobertura" component={Coverage} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/envios" component={Shippments} />
-      <Route exact path="/Admon" component={Admon} />
-      <Route exact path="/AgregaEnvio" component={AddShippments} />
+      <Route exact path="/">
+        {" "}
+        <Landing />{" "}
+      </Route>
+      <Route
+        exact
+        path="/login"
+        render={() => {
+          return token ? <Redirect to="/Admon" /> : <Login />;
+        }}
+      />
+      <Route exact path="/cobertura">
+        {" "}
+        <Coverage />{" "}
+      </Route>
+      <Route exact path="/registrar">
+        {" "}
+        <Register />{" "}
+      </Route>
+      <Route
+        exact
+        path="/AgregaEnvio"
+        render={() => {
+          return !token ? <Redirect to="/" /> : <AddShippments />;
+        }}
+      />
+      <Route
+        exact
+        path="/envios"
+        render={() => {
+          return !token ? <Redirect to="/" /> : <Shippments />;
+        }}
+      />
+      <Route
+        exact
+        path="/Admon"
+        render={() => {
+          return !token ? <Redirect to="/" /> : <Admon />;
+        }}
+      />
       <Redirect from="*" to="/" />
     </Switch>
   );
