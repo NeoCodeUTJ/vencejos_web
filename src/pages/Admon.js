@@ -12,9 +12,10 @@ import Image from "@material-tailwind/react/Image";
 
 
 
+import SimpleFooter from "components/SimpleFooter";
 
 export default function Admon() {
-     // const logout= ()=>{
+  // const logout= ()=>{
   //   localStorage.removeItem('user');
   // }
     return (

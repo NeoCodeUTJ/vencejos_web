@@ -1,28 +1,23 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import logovencejos from '../../assets/img/Logo.jpeg'
-import { Redirect } from 'react-router'
-// import {logout} from 'services/auth.services'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import logovencejos from "../../assets/img/Logo.jpeg";
+import iconUser from "../../assets/img/profile.svg";
 
-const logout =() =>{
-  localStorage.removeItem('token');
-  localStorage.removeItem('name');
-  window.location.href='/';
-}
+const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+};
 
-const fullname = localStorage.getItem('name')?.replace('"','');
-console.log(fullname);
+const fullname = localStorage.getItem("name")?.replaceAll('"', "");
 const navigation = [
-  { name: 'Clientes', href: '#', current: true},
-  { name: 'Empleados', href: '#', current: false },
-  { name: 'Envios', href: '#', current: false },
-  { name: 'Proveedores', href: '#', current: false }
-]
+  { name: "Usuarios", href: "/usuarios", current: false },
+  { name: "Envios", href: "/envios", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
@@ -45,16 +40,18 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src={logovencejos}
-                    alt="Vencejos-mensajeria-logo"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src={logovencejos}
-                    alt="vencejos-mensajeria-logo"
-                  />
+                  <a href="/Admon">
+                    <img
+                      className="block lg:hidden h-8 w-auto"
+                      src={logovencejos}
+                      alt="Vencejos-mensajeria-logo"
+                    />
+                    <img
+                      className="hidden lg:block h-8 w-auto"
+                      src={logovencejos}
+                      alt="vencejos-mensajeria-logo"
+                    />
+                  </a>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -63,32 +60,21 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
                     ))}
-                    <button href="/" class='text-white text-gray-300 hover:bg-gray-700 hover:text-white
-                          px-3 py-2 rounded-md text-sm font-medium' onClick={logout}
-                        >Cerrar Sesión</button>
                   </div>
-
                 </div>
-                
               </div>
-              <p class="text-white md:flex">"Bienvenid(a): {fullname}</p>
+              <p class="text-white md:flex">Bienvenid(a): {fullname}</p>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
@@ -96,7 +82,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={iconUser}
                         alt=""
                       />
                     </Menu.Button>
@@ -114,30 +100,14 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          href="/"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                            onClick={logout}
                           >
-                            Envios
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Usuarios
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            ...
+                            Cerrar sesión
                           </a>
                         )}
                       </Menu.Item>
@@ -156,10 +126,12 @@ export default function Example() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -169,5 +141,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }

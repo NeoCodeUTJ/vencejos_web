@@ -1,9 +1,9 @@
-import CardShippments from "components/Shippments/CardShippments";
 import Header from "components/Shippments/Header";
 import AdmonNavbar from "components/admon/Navbar_admon";
 import SimpleFooterDark from "components/SimpleFooterDark";
+import AddShippmentsForm from "components/Shippments/AddShippmentsForm";
 
-export default function Shippments() {
+export default function AddShippments() {
   return (
     <>
       <div className="absolute w-full z-20">
@@ -11,7 +11,7 @@ export default function Shippments() {
       </div>
       <main>
         <Header />
-        <CardShippments />
+        <AddShippmentsForm />
       </main>
       <SimpleFooterDark />
     </>
