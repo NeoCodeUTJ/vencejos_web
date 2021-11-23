@@ -17,7 +17,6 @@ import Addusers from "pages/AddUsers"
 
 function App() {
   const token = localStorage.getItem("token");
-  console.log(token);
   return (
     <Switch>
       <Route exact path="/">
@@ -64,7 +63,7 @@ function App() {
         return !token ? <Redirect to="/" /> : <Users />
       }} />
       <Route exact path="/addusers" render={() => {
-        return !token ? <Redirect to="/" /> : <Addusers/>
+        return !token ? <Redirect to="/" /> : <Addusers />
       }} />
       <Redirect from="*" to="/" />
     </Switch>

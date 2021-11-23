@@ -12,4 +12,14 @@ export const getUsers = () => {
     return response;
 }
 
+export const addUsers = (data) => {
+    console.log(data);
+    axios.post(api_url, data)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+}
+
+
 export default getUsers;

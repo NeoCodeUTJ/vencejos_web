@@ -5,10 +5,11 @@ import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import InputIcon from "@material-tailwind/react/InputIcon";
 import { getUsers } from 'services/users.service';
-import { data } from 'autoprefixer';
+import { useHistory } from 'react-router-dom';
 
 const ListUsers = () => {
 
+    const history = useHistory();
     const [response, setResponse] = useState(null);
 
     useEffect(() => {
@@ -20,7 +21,11 @@ const ListUsers = () => {
                 console.log(error);
                 return error;
             });
-    }, [])
+    }, []);
+
+    const handleClick = () => {
+        history.push("/addusers");
+    }
 
     return (
         <div className="relative py-16 bg-gray-100">
@@ -35,18 +40,18 @@ const ListUsers = () => {
                             <div className="flex flex-col w-48 mt-8 mb-8 gap-4 " >
                                 <div className="">
                                     <a href="/addusers" rel="noreferrer">
-                                    <Button
-                                        color="pink"
-                                        className="bg-white text-white ml-4"
-                                        ripple="dark"
-                                    >Agregar usuarios
-                                    </Button>
+                                        <Button
+                                            color="pink"
+                                            className="bg-white text-white ml-4"
+                                            ripple="dark"
+                                            onClick={handleClick}
+                                        >Agregar usuarios
+                                        </Button>
                                     </a>
                                 </div>
                                 {/*Buscar*/}
                                 <div className="order-last">
                                     <InputIcon
-
                                         type="text"
                                         color="pink"
                                         size="regular"
@@ -88,8 +93,8 @@ const ListUsers = () => {
                                             console.log(element.email)
                                             return (
                                                 <tr key={index}>
-                                                     {/*ID*/}
-                                                     <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
+                                                    {/*ID*/}
+                                                    <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                                                         #{element.id}
                                                     </th>
                                                     {/*Nombre*/}
