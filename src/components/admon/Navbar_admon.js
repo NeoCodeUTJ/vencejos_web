@@ -5,6 +5,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import logovencejos from "../../assets/img/Logo.jpeg";
 import iconUser from "../../assets/img/profile.svg";
 
+
 const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("name");
@@ -22,7 +23,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -62,7 +63,7 @@ export default function Example() {
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            : "text-white hover:bg-gray-700 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -73,17 +74,18 @@ export default function Example() {
                   </div>
                 </div>
               </div>
-              <p class="text-white md:flex">Bienvenid(a): {fullname}</p>
+              <p class="text-white font-medium md:flex">Bienvenid(a): {fullname}</p>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Menu.Button className="bg-white flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-pink-500 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
                         src={iconUser}
                         alt=""
+                        
                       />
                     </Menu.Button>
                   </div>
@@ -102,8 +104,8 @@ export default function Example() {
                           <a
                           href="/"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              active ? "bg-gray-200" : "",
+                              "block px-4 py-2 text-sm text-pink-500"
                             )}
                             onClick={logout}
                           >
