@@ -29,6 +29,8 @@ export default function CardShippments() {
                     </Button>
                   </a>
                 </div>
+              
+
                 {/*Buscar*/}
                 <div className=" ">
                   <InputIcon
