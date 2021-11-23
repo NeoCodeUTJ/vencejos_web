@@ -13,6 +13,7 @@ import "assets/styles/tailwind.css";
 import Admon from "pages/Admon";
 import Shippments from "pages/Shippments";
 import AddShippments from "pages/AddShippments";
+import Addusers from "pages/AddUsers"
 
 function App() {
   const token = localStorage.getItem("token");
@@ -61,6 +62,9 @@ function App() {
       />
       <Route exact path="/usuarios" render={() => {
         return !token ? <Redirect to="/" /> : <Users />
+      }} />
+      <Route exact path="/addusers" render={() => {
+        return !token ? <Redirect to="/" /> : <Addusers/>
       }} />
       <Redirect from="*" to="/" />
     </Switch>

@@ -18,12 +18,14 @@ const ListUsers = () => {
                             {/*Boton y barra de busqueda*/}
                             <div className="flex flex-col w-48 mt-8 mb-8 gap-4 " >
                                 <div className="">
+                                    <a href="/addusers" rel="noreferrer">
                                     <Button
                                         color="pink"
                                         className="bg-white text-white ml-4"
                                         ripple="dark"
                                     >Agregar usuarios
                                     </Button>
+                                    </a>
                                 </div>
                                 {/*Buscar*/}
                                 <div className="order-last">
