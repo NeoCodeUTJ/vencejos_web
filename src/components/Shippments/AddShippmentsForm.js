@@ -5,10 +5,13 @@ import ProfilePicture from "assets/img/Logo.jpeg";
 import Button from "@material-tailwind/react/Button";
 import AddShip from "../../services/shipping.service";
 import React, { useState, useRef } from "react";
+import Form from "react-validation/build/form";
 
 const AddShippmentsForm = (props) => {
   const form = useRef();
   const checkBtn = useRef();
+  const user = localStorage.getItem("user");
+  console.log(user);
 
   const [recoleccion, setrecoleccion] = useState("");
   const [entrega, setEntrega] = useState("");
@@ -16,10 +19,14 @@ const AddShippmentsForm = (props) => {
   const [costo, setCosto] = useState("");
 
   const data = {
-    recoleccion: recoleccion,
-    entrega: entrega,
-    comentarios: comentarios,
-    costo: costo,
+    start_address: recoleccion,
+    delivery_address: entrega,
+    comments: comentarios,
+    total_amount: costo,
+    status: "In Progress",
+    received: 0,
+    id_user_client: user,
+    id_user_employee: user,
   };
 
   const onChangeRecolect = (e) => {
@@ -49,12 +56,7 @@ const AddShippmentsForm = (props) => {
         window.location.reload();
       },
       (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
+        alert("fallo al guardar");
       }
     );
   };
@@ -86,7 +88,7 @@ const AddShippmentsForm = (props) => {
               <div className="flex flex-wrap ">
                 <div className="w-full lg:w-9/12 px-4 flex flex-col items-center">
                   <div className="mb-10 py-2 border-t border-gray-200">
-                    <form action="">
+                    <Form onSubmit={handleShip} ref={form}>
                       <Input
                         type="text"
                         color="pink"
@@ -143,7 +145,7 @@ const AddShippmentsForm = (props) => {
                         {" "}
                         Agregar
                       </Button>
-                    </form>
+                    </Form>
                   </div>
                 </div>
               </div>

@@ -12,16 +12,15 @@ export const login = (email, password)=>{
         const fsurname = res.data.data.first_surname;
         const sndsurname = res.data.data.second_surname;
         const fullname = `${name} ${fsurname} ${sndsurname}`;
-        console.log(fsurname, sndsurname);
+        const dataUser = res.data.data.id;
+        console.log(res.data);
         if(res.data.token){
             localStorage.setItem('token',JSON.stringify(res.data.token));
             localStorage.setItem('name',JSON.stringify(fullname));
-            
+            localStorage.setItem('user', JSON.stringify(dataUser));
         }
         return res.data;
     });
-
-    
 };
 
 

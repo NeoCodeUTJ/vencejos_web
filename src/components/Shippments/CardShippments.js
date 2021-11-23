@@ -30,7 +30,7 @@ export default function CardShippments() {
                   </a>
                 </div>
                 {/*Buscar*/}
-                <div className="order-last">
+                <div className=" ">
                   <InputIcon
                     type="text"
                     color="pink"
