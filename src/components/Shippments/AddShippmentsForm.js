@@ -3,14 +3,15 @@ import H3 from "@material-tailwind/react/Heading3";
 import Input from "@material-tailwind/react/Input";
 import ProfilePicture from "assets/img/Logo.jpeg";
 import Button from "@material-tailwind/react/Button";
-import AddShip from "../../services/shipping.service";
+import {addShip} from "../../services/shipping.service";
 import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
-
+import { useHistory } from "react-router-dom";
 const AddShippmentsForm = (props) => {
   const form = useRef();
   const checkBtn = useRef();
   const user = localStorage.getItem("user");
+  const history = useHistory();
   console.log(user);
 
   const [recoleccion, setrecoleccion] = useState("");
@@ -49,17 +50,14 @@ const AddShippmentsForm = (props) => {
     setCosto(costo);
   };
 
-  const handleShip = (e) => {
-    e.preventDefault();
-    AddShip.addShip(data).then(
-      () => {
-        window.location.reload();
-      },
-      (error) => {
-        alert("fallo al guardar");
-      }
-    );
-  };
+  const handleShip = async () => {
+    addShip(data).then(() => {
+        // history.push("/envios");
+        console.log(data);
+    }, (error) => {
+        const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    });
+};
   return (
     <section className="relative py-16 bg-gray-100">
       <div className="container max-w-7xl px-4 mx-auto">

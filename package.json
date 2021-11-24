@@ -72,6 +72,8 @@
     "typescript": "4.3.2"
   },
   "react-dotenv": {
-    "whitelist": ["URL_API"]
+    "whitelist": [
+      "URL_API"
+    ]
   }
 }
