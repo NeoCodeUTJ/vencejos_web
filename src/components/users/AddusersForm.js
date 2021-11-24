@@ -101,57 +101,58 @@ const AddUsersForm = () => {
 
                         <div className="mb-10 py-2 border-t border-gray-200">
                             <div className="flex flex-wrap ">
-                                <div className="w-full lg:w-9/12 px-4 flex flex-col items-center">
+                                <div className="w-full  px-4 flex flex-col items-center">
                                     <div className="mb-10 py-2 border-t border-gray-200">
                                         <form>
-                                            <Input type="text" color="pink" size="regular" name="name"
+                                            <div className="w-96 ">
+                                            <Input type="text" color="pink"  name="name"
                                                 value={name}
                                                 onChange={onChangeName}
                                                 outline={false}
-                                                placeholder="name" />{" "}
+                                                placeholder="Nombre" />{" "}
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="first_surname"
                                                 value={first_surname}
                                                 onChange={onChangefirst_surname}
                                                 outline={false}
-                                                placeholder="first_surname" />
+                                                placeholder="Primer apellido" />
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="second_surname"
                                                 value={second_surname}
                                                 onChange={onChangeSecond_surname}
                                                 outline={false}
-                                                placeholder="second_surname" />
+                                                placeholder="Segundo apellido" />
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="phone"
                                                 value={phone}
                                                 onChange={onChangephone}
                                                 outline={false}
-                                                placeholder="phone" />
+                                                placeholder="Telefono" />
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="email"
                                                 value={email}
                                                 onChange={onChangeemail}
                                                 outline={false}
-                                                placeholder="email" />
+                                                placeholder="Correo electronico" />
                                             <br />
-                                            <br />
+                                           
                                             <Input type="text" color="pink" size="regular" name="password"
                                                 value={password}
                                                 onChange={onChangePassword}
                                                 outline={false}
-                                                placeholder="password" />
+                                                placeholder="Contraseña" />
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="role"
                                                 value={role}
                                                 onChange={onChangeRole}
                                                 outline={false}
-                                                placeholder="role" />
+                                                placeholder="Rol" />
                                             <br />
                                             <Input type="text" color="pink" size="regular" name="id_municipio"
                                                 value={id_municipio}
                                                 onChange={onChangeId_municipio}
                                                 outline={false}
-                                                placeholder="id_municipio" />
+                                                placeholder="Id municipio" />
                                             <br />
                                             <Button color="pink" buttonType="filled" size="regular"
                                                 rounded={false}
@@ -162,6 +163,7 @@ const AddUsersForm = () => {
                                                 {" "}
                                                 Agregar
                                             </Button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

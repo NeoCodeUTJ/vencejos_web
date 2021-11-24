@@ -86,9 +86,11 @@ const AddShippmentsForm = (props) => {
 
             <div className="mb-10 py-2 border-t border-gray-200">
               <div className="flex flex-wrap ">
-                <div className="w-full lg:w-9/12 px-4 flex flex-col items-center">
+                <div className="w-full px-4 flex flex-col items-center">
                   <div className="mb-10 py-2 border-t border-gray-200">
                     <Form onSubmit={handleShip} ref={form}>
+
+                    <div className="w-96 ">
                       <Input
                         type="text"
                         color="pink"
@@ -141,10 +143,12 @@ const AddShippmentsForm = (props) => {
                         block={false}
                         iconOnly={false}
                         ripple="light"
+                        
                       >
                         {" "}
                         Agregar
                       </Button>
+                      </div>
                     </Form>
                   </div>
                 </div>
