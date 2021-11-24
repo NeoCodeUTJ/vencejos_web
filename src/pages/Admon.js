@@ -44,10 +44,10 @@ export default function Admon() {
                                             raised
                                             rounded
                                         />
-                                        <div className="flex flex-row  mt-2">
+                                        <div className="flex flex-row mt-2">
                                         <Heading1  color="white">Hola! Bienvenido</Heading1>
-                                        <div className="relative h-96 w-96 ">
-                                        <div className= "mb-16 ml-8 px-2 inset-y-0 right-0  h-96 w-96">
+                                        <div className="relative mb-8 h-96 w-96 ">
+                                        <div className= "my-80 ml-8 px-2 inset-y-0 right-0  h-96 w-96">
                                             <Image
                                                 src={logo}
                                                 />
