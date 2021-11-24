@@ -18,11 +18,11 @@ export const listShippings = () => {
 }
 
 export const addShip = (data) => {
-    console.log(data);
+    console.log(data, "DATA");
     axios.post(api_url, config, data)
     .then(res => {
       console.log(res);
       console.log(res.data);
     })}
 
-export default addShip;
+export default listShippings;

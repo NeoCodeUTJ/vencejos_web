@@ -18,6 +18,7 @@ const AddShippmentsForm = (props) => {
   const [entrega, setEntrega] = useState("");
   const [comentarios, setComentarios] = useState("");
   const [costo, setCosto] = useState("");
+  const [quantity, setQuantity] = useState("");
 
   const data = {
     start_address: recoleccion,
@@ -25,9 +26,11 @@ const AddShippmentsForm = (props) => {
     comments: comentarios,
     total_amount: costo,
     status: "In Progress",
-    received: 0,
+    received: true,
     id_user_client: user,
     id_user_employee: user,
+    quantity: quantity,
+    
   };
 
   const onChangeRecolect = (e) => {
@@ -49,6 +52,10 @@ const AddShippmentsForm = (props) => {
     const costo = e.target.value;
     setCosto(costo);
   };
+  const onChangeQuantity = (e)=>{
+    const quantity = e.target.value;
+    setQuantity(quantity);
+  }
 
   const handleShip = async () => {
     addShip(data).then(() => {
@@ -131,6 +138,17 @@ const AddShippmentsForm = (props) => {
                         onChange={onChangeCosto}
                         outline={false}
                         placeholder="Costo"
+                      />
+                      <br />
+                      <Input
+                        type="number"
+                        color="pink"
+                        size="regular"
+                        name="quantity"
+                        value={quantity}
+                        onChange={onChangeQuantity}
+                        outline={false}
+                        placeholder="Cantidad"
                       />
                       <br />
                       <Button
