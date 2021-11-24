@@ -1,11 +1,10 @@
 import axios from "axios";
 const api_url = `http://localhost:8080/api/shippings`;
 const token = localStorage.getItem("token")?.replaceAll('"', "");
-console.log(token);
 const config = {
-    headers: {
-        Authorization: `Bearer ${token}`
-    }
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
 };
 
 export const listShippings = () => {
@@ -17,12 +16,17 @@ export const listShippings = () => {
   }
 }
 
+
 export const addShip = (data) => {
-    console.log(data, "DATA");
-    axios.post(api_url, config, data)
+  console.log(config);
+  axios.post(api_url, data)
     .then(res => {
       console.log(res);
       console.log(res.data);
-    })}
+    })
+}
 
-export default listShippings;
+export default {
+  listShippings,
+  addShip
+}

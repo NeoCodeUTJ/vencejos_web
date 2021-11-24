@@ -71,9 +71,11 @@ const AddUsersForm = () => {
 
     const handleUsers = async () => {
         addUsers(data).then(() => {
+            window.location.reload(true);
             history.push("/usuarios");
         }, (error) => {
             const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+            console.log(resMessage);
         });
     };
 

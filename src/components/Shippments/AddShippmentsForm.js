@@ -3,21 +3,21 @@ import H3 from "@material-tailwind/react/Heading3";
 import Input from "@material-tailwind/react/Input";
 import ProfilePicture from "assets/img/Logo.jpeg";
 import Button from "@material-tailwind/react/Button";
-import {addShip} from "../../services/shipping.service";
+import { addShip } from "../../services/shipping.service";
 import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
-import { useHistory } from "react-router-dom";
-const AddShippmentsForm = (props) => {
-  const form = useRef();
-  const checkBtn = useRef();
-  const user = localStorage.getItem("user");
+import { useHistory } from 'react-router-dom';
+
+const AddShippmentsForm = () => {
+
   const history = useHistory();
-  console.log(user);
+  const user = localStorage.getItem("user");
 
   const [recoleccion, setrecoleccion] = useState("");
   const [entrega, setEntrega] = useState("");
   const [comentarios, setComentarios] = useState("");
   const [costo, setCosto] = useState("");
+  const [status, setStatus] = useState("");
   const [quantity, setQuantity] = useState("");
 
   const data = {
@@ -25,17 +25,21 @@ const AddShippmentsForm = (props) => {
     delivery_address: entrega,
     comments: comentarios,
     total_amount: costo,
-    status: "In Progress",
+    status: status,
     received: true,
     id_user_client: user,
     id_user_employee: user,
     quantity: quantity,
-    
   };
 
   const onChangeRecolect = (e) => {
     const recoleccion = e.target.value;
     setrecoleccion(recoleccion);
+  };
+
+  const onChangeStatus = (e) => {
+    const status = e.target.value;
+    setStatus(status);
   };
 
   const onChangeEntrega = (e) => {
@@ -52,19 +56,21 @@ const AddShippmentsForm = (props) => {
     const costo = e.target.value;
     setCosto(costo);
   };
-  const onChangeQuantity = (e)=>{
+  const onChangeQuantity = (e) => {
     const quantity = e.target.value;
     setQuantity(quantity);
   }
 
-  const handleShip = async () => {
+  const handleShip = async (e) => {
     addShip(data).then(() => {
-        // history.push("/envios");
-        console.log(data);
+      window.location.reload(true);
+      history.push("/envios");
     }, (error) => {
         const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        console.log(resMessage);
     });
 };
+
   return (
     <section className="relative py-16 bg-gray-100">
       <div className="container max-w-7xl px-4 mx-auto">
@@ -93,77 +99,87 @@ const AddShippmentsForm = (props) => {
               <div className="flex flex-wrap ">
                 <div className="w-full px-4 flex flex-col items-center">
                   <div className="mb-10 py-2 border-t border-gray-200">
-                    <Form onSubmit={handleShip} ref={form}>
+                    <Form>
 
-                    <div className="w-96 ">
-                      <Input
-                        type="text"
-                        color="pink"
-                        size="regular"
-                        name="recoleccion"
-                        value={recoleccion}
-                        onChange={onChangeRecolect}
-                        outline={false}
-                        placeholder="Recoleccion"
-                      />{" "}
-                      <br />
-                      <Input
-                        type="text"
-                        color="pink"
-                        size="regular"
-                        name="entrega"
-                        value={entrega}
-                        onChange={onChangeEntrega}
-                        outline={false}
-                        placeholder="Entrega"
-                      />
-                      <br />
-                      <Input
-                        type="text"
-                        color="pink"
-                        size="regular"
-                        name="comentarios"
-                        value={comentarios}
-                        onChange={onChangeComent}
-                        outline={false}
-                        placeholder="Comentarios"
-                      />
-                      <br />
-                      <Input
-                        type="text"
-                        color="pink"
-                        size="regular"
-                        name="costo"
-                        value={costo}
-                        onChange={onChangeCosto}
-                        outline={false}
-                        placeholder="Costo"
-                      />
-                      <br />
-                      <Input
-                        type="number"
-                        color="pink"
-                        size="regular"
-                        name="quantity"
-                        value={quantity}
-                        onChange={onChangeQuantity}
-                        outline={false}
-                        placeholder="Cantidad"
-                      />
-                      <br />
-                      <Button
-                        color="pink"
-                        buttonType="filled"
-                        size="regular"
-                        rounded={false}
-                        block={false}
-                        iconOnly={false}
-                        ripple="light"
-                        
-                      >
-                        {" "}
-                        Agregar
-                      </Button>
+                      <div className="w-96 ">
+                        <Input
+                          type="text"
+                          color="pink"
+                          size="regular"
+                          name="recoleccion"
+                          value={recoleccion}
+                          onChange={onChangeRecolect}
+                          outline={false}
+                          placeholder="Recoleccion"
+                        />{" "}
+                        <br />
+                        <Input
+                          type="text"
+                          color="pink"
+                          size="regular"
+                          name="entrega"
+                          value={entrega}
+                          onChange={onChangeEntrega}
+                          outline={false}
+                          placeholder="Entrega"
+                        />
+                        <br />
+                        <Input
+                          type="text"
+                          color="pink"
+                          size="regular"
+                          name="comentarios"
+                          value={comentarios}
+                          onChange={onChangeComent}
+                          outline={false}
+                          placeholder="Comentarios"
+                        />
+                        <br />
+                        <Input
+                          type="text"
+                          color="pink"
+                          size="regular"
+                          name="status"
+                          value={status}
+                          onChange={onChangeStatus}
+                          outline={false}
+                          placeholder="Estatus"
+                        />
+                        <br />
+                        <Input
+                          type="text"
+                          color="pink"
+                          size="regular"
+                          name="costo"
+                          value={costo}
+                          onChange={onChangeCosto}
+                          outline={false}
+                          placeholder="Costo"
+                        />
+                        <br />
+                        <Input
+                          type="number"
+                          color="pink"
+                          size="regular"
+                          name="quantity"
+                          value={quantity}
+                          onChange={onChangeQuantity}
+                          outline={false}
+                          placeholder="Cantidad"
+                        />
+                        <br />
+                        <Button
+                          color="pink"
+                          buttonType="filled"
+                          size="regular"
+                          rounded={false}
+                          block={false}
+                          iconOnly={false}
+                          ripple="light"
+                          onClick={handleShip}>
+                          {" "}
+                          Agregar
+                        </Button>
                       </div>
                     </Form>
                   </div>
