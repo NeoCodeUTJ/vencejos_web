@@ -29,7 +29,7 @@ export default function Admon() {
 
              <Container>
              <div className="container max-w-8xl px-16 mx-auto">
-                <div className="relative flex flex-col min-w-0 bg-gray-50  w-full mb-6 shadow-xl rounded-2xl -mt-96">
+                <div className="relative flex flex-col min-w-0 bg-gray-25 w-full mb-6 shadow-xl rounded-2xl -mt-96">
                     <div className="px-32 ">
                         
                         {/**/}
@@ -47,7 +47,7 @@ export default function Admon() {
                                         <div className="flex flex-row  mt-2">
                                         <Heading1  color="white">Hola! Bienvenido</Heading1>
                                         <div className="relative h-96 w-96 ">
-                                        <div className= "mb-16 ml-16 px-3 inset-y-0 right-0  h-96 w-96">
+                                        <div className= "mb-16 ml-8 px-2 inset-y-0 right-0  h-96 w-96">
                                             <Image
                                                 src={logo}
                                                 />
