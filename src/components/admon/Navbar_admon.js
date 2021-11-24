@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import logovencejos from "../../assets/img/Logo.jpeg";
 import iconUser from "../../assets/img/profile.svg";
-
+import { useHistory } from 'react-router-dom';
 
 const logout = () => {
   localStorage.removeItem("token");
@@ -22,6 +22,11 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/Admon");
+}
   return (
     <Disclosure as="nav" className="">
       {({ open }) => (
@@ -41,7 +46,7 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <a href="/Admon">
+                  <a onClick={handleClick}>
                     <img
                       className="block lg:hidden h-8 w-auto"
                       src={logovencejos}

@@ -5,9 +5,10 @@ import ProfilePicture from "assets/img/Logo.jpeg";
 import Button from "@material-tailwind/react/Button";
 import { addUsers } from "../../services/users.service";
 import React, { useState, useRef } from "react";
+import { useHistory } from 'react-router-dom';
 
 const AddUsersForm = () => {
-
+    const history = useHistory();
     const form = useRef();
     const checkBtn = useRef();
 
@@ -70,7 +71,7 @@ const AddUsersForm = () => {
 
     const handleUsers = async () => {
         addUsers(data).then(() => {
-
+            history.push("/usuarios");
         }, (error) => {
             const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         });
