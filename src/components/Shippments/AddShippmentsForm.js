@@ -4,7 +4,7 @@ import Input from "@material-tailwind/react/Input";
 import ProfilePicture from "assets/img/Logo.jpeg";
 import Button from "@material-tailwind/react/Button";
 import { addShip } from "../../services/shipping.service";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import { useHistory } from 'react-router-dom';
 
