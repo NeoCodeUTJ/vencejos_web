@@ -4,6 +4,7 @@ import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 import Button from "@material-tailwind/react/Button";
 import InputIcon from "@material-tailwind/react/InputIcon";
+import Radio from "@material-tailwind/react/radio";
 import { listShippings } from '../../services/shipping.service';
 import { useHistory } from 'react-router-dom';
 
@@ -83,11 +84,15 @@ export default function CardShippments() {
                       <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                         Status
                       </th>
+                     
                       <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                         Total
                       </th>
                       <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                         Comentarios
+                      </th>
+                      <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
+                        Progreso 
                       </th>
                     </tr>
                   </thead>
@@ -111,7 +116,9 @@ export default function CardShippments() {
                           {/*Status*/}
                           <th className="border-b border-gray-200 align-middle font-bold text-sm whitespace-nowrap px-0.5 py-4 text-center">
                             {element.status}
+
                           </th>
+                            
                           {/*Comentarios*/}
                           <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                             {element.total_amount}
@@ -119,13 +126,43 @@ export default function CardShippments() {
                           <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                             {element.comments}
                           </th>
-                        </tr>
+                          <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
+                                                  
+                          <div className="text-base font-medium whitespace-nowrap ">
+                            <Radio
+                                color="indigo"
+                                text="En progreso"
+                                id="01"
+                                name="option"
+                            />
+                            <Radio
+                                color="purple"
+                                text="En camino"
+                                id="02"
+                                name="option"
+                            />
+                            <Radio
+                                color="pink"
+                                text="Entregado"
+                                id="03"
+                                name="option"
+                            />
+                                </div>  
+                                      
+                                      </th>
+
+                                    </tr>
                       )
                     })}
 
 
 
-                    {/*Otro*/}
+                    {/*Status*/}
+                    
+                   
+                
+
+
 
                     {/* <i className="fas fa-circle fa-sm text-green-500 mr-2 "></i>{" "}
                         Entregado */}
