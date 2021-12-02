@@ -10,10 +10,13 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // Tailwind CSS Style Sheet
 import "assets/styles/tailwind.css";
+
 import Admon from "pages/Admon";
 import Shippments from "pages/Shippments";
 import AddShippments from "pages/AddShippments";
-import Addusers from "pages/AddUsers"
+//import moduleName from 'pages/';
+import Addusers from "pages/AddUsers";
+import EditShippings from 'pages/EditShippings';
 
 function App() {
   const token = localStorage.getItem("token");
@@ -65,6 +68,11 @@ function App() {
       <Route exact path="/addusers" render={() => {
         return !token ? <Redirect to="/" /> : <Addusers />
       }} />
+
+      <Route exact path="/EditarEnvio/:id" render={() => {
+        return !token ? <Redirect to="/" /> : <EditShippings />
+      }} />
+
       <Redirect from="*" to="/" />
     </Switch>
   );

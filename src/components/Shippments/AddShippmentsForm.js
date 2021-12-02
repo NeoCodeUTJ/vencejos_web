@@ -157,17 +157,6 @@ const AddShippmentsForm = () => {
                           placeholder="Costo"
                         />
                         <br />
-                        <Input
-                          type="number"
-                          color="pink"
-                          size="regular"
-                          name="quantity"
-                          value={quantity}
-                          onChange={onChangeQuantity}
-                          outline={false}
-                          placeholder="Cantidad"
-                        />
-                        <br />
                         <Button
                           color="pink"
                           buttonType="filled"

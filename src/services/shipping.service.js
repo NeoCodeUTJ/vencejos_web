@@ -16,9 +16,7 @@ export const listShippings = () => {
   }
 }
 
-
 export const addShip = (data) => {
-  console.log(config);
   axios.post(api_url, data)
     .then(res => {
       console.log(res);
@@ -26,7 +24,29 @@ export const addShip = (data) => {
     })
 }
 
+
+export const listShippingById = (id) => {
+  try {
+    const response = axios.get(`${api_url}/${id}`);
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+
+export const editShippingById = (id, data) => {
+  try {
+    const response = axios.put(`${api_url}/edit/${id}`, data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+
+
 export default {
   listShippings,
-  addShip
+  addShip,
+  listShippingById,
+  editShippingById
 }

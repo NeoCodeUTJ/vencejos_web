@@ -5,9 +5,12 @@ import CardBody from "@material-tailwind/react/CardBody";
 import Button from "@material-tailwind/react/Button";
 import InputIcon from "@material-tailwind/react/InputIcon";
 import { listShippings } from '../../services/shipping.service';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import iconEdit from '../../../src/assets/icons/edit.svg';
+import './style.css';
 
 export default function CardShippments() {
+
   const history = useHistory();
   const [response, setResponse] = useState(null);
 
@@ -89,6 +92,9 @@ export default function CardShippments() {
                       <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
                         Comentarios
                       </th>
+                      <th className="px-2 text-pink-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-medium text-center">
+                        Acciones
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -118,6 +124,12 @@ export default function CardShippments() {
                           </th>
                           <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
                             {element.comments}
+                          </th>
+                          <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4">
+                            <Link to={{ pathname: `/EditarEnvio/${element.id}` }} className=" whitespace-nowrap theme-btn-primary mt-8 lg:mt-4 w-full lg:max-w-min m-3 text-center text-sm py-3 self-center lg:px-8 lg:py-2 lg:self-start">
+                              <img className="icon_edit m-auto" src={iconEdit} />
+                            </Link>
+
                           </th>
                         </tr>
                       )
