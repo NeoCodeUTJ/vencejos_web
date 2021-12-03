@@ -56,10 +56,10 @@ const AddShippmentsForm = () => {
     const costo = e.target.value;
     setCosto(costo);
   };
-  const onChangeQuantity = (e) => {
-    const quantity = e.target.value;
-    setQuantity(quantity);
-  }
+  // const onChangeQuantity = (e) => {
+  //   const quantity = e.target.value;
+  //   setQuantity(quantity);
+  // }
 
   const handleShip = async (e) => {
     addShip(data).then(() => {

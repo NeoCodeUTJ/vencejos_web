@@ -34,9 +34,10 @@ export const listShippingById = (id) => {
   }
 }
 
-export const editShippingById = (id, data) => {
+export const editShippingById = (id, status) => {
+
   try {
-    const response = axios.put(`${api_url}/edit/${id}`, data);
+    const response = axios.put(`${api_url}/edit/${id}`, status);
     return response;
   } catch (error) {
     return error;

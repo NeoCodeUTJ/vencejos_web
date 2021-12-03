@@ -10,11 +10,9 @@ import Form from "react-validation/build/form";
 import { listShippingById, editShippingById } from '../../services/shipping.service';
 
 export default function EditShippment() {
-    const [response, setResponse] = useState(null);
-    const [entrega, setEntrega] = useState("");
-    const [recoleccion, setrecoleccion] = useState("");
-
     const { id } = useParams();
+
+    const [response, setResponse] = useState();
 
     useEffect(() => {
         listShippingById(id)
@@ -26,25 +24,19 @@ export default function EditShippment() {
             });
     }, []);
 
-    // const onChangeEntrega = (e) => {
-    //     const entrega = e.target.value;
-    //     setEntrega(entrega);
-    //   };
+    const handleShip = async (e) => {
+        e.preventDefault();
+        console.log(response);
+        const data = {
+            status: response
+        };
+        await editShippingById(id, data).then(() => {
 
-    //   const data = {
-    //     delivery_address: entrega,
-    //     start_address: recoleccion,
-    //   };
-
-    //   const handleShip = async (e) => {
-    //     editShip(data).then(() => {
-    //       window.location.reload(true);
-    //       history.push("/envios");
-    //     }, (error) => {
-    //         const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
-    //         console.log(resMessage);
-    //     });
-    // };
+        }, (error) => {
+            const resMessage = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+            console.log(resMessage);
+        });
+    };
 
     return (
         <section className="relative py-16 bg-gray-100">
@@ -82,8 +74,8 @@ export default function EditShippment() {
                                                     color="pink"
                                                     size="regular"
                                                     name="recoleccion"
-                                                    value={response?.start_address} // entrega
-                                                    onChange= {e => setResponse(e.target.value)} // onChangeEntrega
+                                                    disabled
+                                                    value={response?.start_address}
                                                     outline={false}
                                                     placeholder="Recoleccion"
                                                 />{" "}
@@ -93,8 +85,8 @@ export default function EditShippment() {
                                                     color="pink"
                                                     size="regular"
                                                     name="entrega"
+                                                    disabled
                                                     value={response?.delivery_address}
-                                                    onChange= {e => setResponse(e.target.value)}
                                                     outline={false}
                                                     placeholder="Entrega"
                                                 />
@@ -104,8 +96,8 @@ export default function EditShippment() {
                                                     color="pink"
                                                     size="regular"
                                                     name="comentarios"
+                                                    disabled
                                                     value={response?.comments}
-                                                    onChange= {e => setResponse(e.target.value)}
                                                     outline={false}
                                                     placeholder="Comentarios"
                                                 />
@@ -116,7 +108,7 @@ export default function EditShippment() {
                                                     size="regular"
                                                     name="status"
                                                     value={response?.status}
-                                                    onChange= {e => setResponse(e.target.value)}
+                                                    onChange={e => setResponse(e.target.value)}
                                                     outline={false}
                                                     placeholder="Estatus"
                                                 />
@@ -126,8 +118,8 @@ export default function EditShippment() {
                                                     color="pink"
                                                     size="regular"
                                                     name="costo"
+                                                    disabled
                                                     value={response?.total_amount}
-                                                    onChange= {e => setResponse(e.target.value)}
                                                     outline={false}
                                                     placeholder="Costo"
                                                 />
@@ -140,9 +132,10 @@ export default function EditShippment() {
                                                     rounded={false}
                                                     block={false}
                                                     iconOnly={false}
+                                                    onClick={handleShip}
                                                     ripple="light">
                                                     {" "}
-                                                    Agregar
+                                                    Editar
                                                 </Button>
                                             </div>
                                         </Form>
