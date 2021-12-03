@@ -15,6 +15,7 @@ const fullname = localStorage.getItem("name")?.replaceAll('"', "");
 const navigation = [
   { name: "Usuarios", href: "/usuarios", current: false },
   { name: "Envios", href: "/envios", current: false },
+  { name:"Reportes", href:"/reportes", current:false}
 ];
 
 function classNames(...classes) {

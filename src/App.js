@@ -14,6 +14,7 @@ import "assets/styles/tailwind.css";
 import Admon from "pages/Admon";
 import Shippments from "pages/Shippments";
 import AddShippments from "pages/AddShippments";
+import ShippingsReports from "pages/Reports"
 //import moduleName from 'pages/';
 import Addusers from "pages/AddUsers";
 import EditShippings from 'pages/EditShippings';
@@ -53,6 +54,13 @@ function App() {
         path="/envios"
         render={() => {
           return !token ? <Redirect to="/" /> : <Shippments />;
+        }}
+      />
+      <Route
+        exact
+        path="/reportes"
+        render={() => {
+          return !token ? <Redirect to="/" /> : <ShippingsReports />;
         }}
       />
       <Route
