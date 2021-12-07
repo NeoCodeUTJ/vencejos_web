@@ -892,6 +892,9 @@ video {
 .border-b{
 	border-bottom-width: 1px;
 }
+.border-b-4{
+	border-bottom-width: 4px;
+}
 .border-solid{
 	border-style: solid;
 }
@@ -1103,6 +1106,10 @@ video {
 .text-base{
 	font-size: 1rem;
 	line-height: 1.5rem;
+}
+.text-9xl{
+	font-size: 8rem;
+	line-height: 1;
 }
 .font-normal{
 	font-weight: 400;
